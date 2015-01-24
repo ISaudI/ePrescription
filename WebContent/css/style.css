@@ -1,0 +1,105 @@
+/* CSS Document */
+
+body {margin:0px; padding:0px; font-family:Verdana, Helvetica, sans-serif; font-size:11px; color:#083C76;}
+
+html, body {height:100%;}
+
+a:visited {color:#083C76;}
+
+a {color:#083C76;}
+
+#header h1 {margin-top:25px; color:#FFFFFF;}
+
+h2 {margin:0px; padding-bottom: 1px; border-bottom: 2px #083C76 solid;}
+
+#mainWrapper {width:100%; min-width:900px; margin:0 auto; min-height:100%;}
+
+#loginSpacer {height:15px;}
+
+#loginPanel.visible {height:240px; background-image:url(../images/loginPanelBG.jpg); background-repeat:repeat-x; position:fixed; top:0px; width:100%; min-width:900px;}
+
+#loginPanel.hidden {height:240px; background-image:url(../images/loginPanelBG.jpg); background-repeat:repeat-x; position:fixed; top:-210px; width:100%; min-width:900px;}
+
+#header {width:100%; height:87px; background-image:url(../images/headerbg.jpg);}
+
+#header .headerWrapper {min-width:680px; width:80%; margin:0 auto; overflow:hidden;}
+
+#header .headerContent {float:left;width:50%}
+
+#logo { float:right; width:30%; text-align: right; margin-top: 15px;}
+
+#contentWrapper {min-width:680px; width:80%; margin:0 auto; margin-top:20px; overflow:hidden;}
+
+#contentWrapper p {padding-bottom:0px;margin-top:4px;}
+
+#nav {float:left; width:180px;}
+
+#content {float:left; width:70%; min-width:400px; position:relative;}
+
+#footer {height:27px; position:relative; background-image:url(../images/footerbg.jpg); background-position:top; background-color:#c2d4e6; padding-top: 8px; margin: -35px auto 0 auto; width:100%; min-width:900px; clear: both;}
+
+#footerContent {width: 80%; min-width:900px; position:relative; margin:0 auto;font-size:11px;}
+
+#copyright {float:left;}
+
+#footerLogo {float:right;}
+
+.clearfooter {height: 35px; clear: both;}
+
+#navItem {width:170px; }
+
+#navItemContent {padding-left:10px; margin-top:-21px; margin-bottom:-25px; background:url(../images/navBG.jpg) repeat-x top left; border-left:#BDD5EF 1px solid;border-right:#BDD5EF 1px solid;}
+
+#navItemContent ul {margin-top: 0px; margin-bottom: 25px;}
+
+#loginButton {position:relative; top:213px; left:60%;}
+
+#loginTabContent {float:left; background-image:url(../images/loginTabBG.gif); background-position:bottom; background-repeat:repeat-x; height:23px; font-size:11px; padding-top:4px;}
+
+#loginContent {position:relative; height:190px; width:500px; margin:0 auto; margin-bottom:-200px; margin-top:10px;}
+
+input {background-color:#ffffff; border:1px solid #5b7996; color:#000000;}
+
+input[type="text"]{padding:3px 1px;font-family:Verdana, Helvetica, sans-serif; font-size:12px;}
+
+input[type="checkbox"],input[type="radio"]{border:none; background-color: transparent;}
+
+input[type="checkbox"]:hover,input[type="radio"]:hover{border:none; background-color: transparent;}
+
+input[type="submit"],input[type="reset"]{font-family:Verdana, Helvetica, sans-serif; color: #083C76; border:solid #BDD5EF 1px; font-weight:bold; font-size:11px; padding:4px;overflow: visible; }
+
+input[type="submit"]:hover,input[type="reset"]:hover{cursor:pointer;background-color:#BDD5EF; border:solid #083C76 1px; color:#FFFFFF;}
+
+input:hover {background-color:#ffffff; border:1px solid #d6e6f6; color:#000000;}
+
+.button {text-decoration: none; border:solid #BDD5EF 1px; font-weight:bold; font-size:11px; padding:6px; line-height: 22px;}
+
+.button:hover {background-color:#BDD5EF; border:solid #083C76 1px; color:#FFFFFF;}
+
+table {border:1px; border-color:#BDD5EF; border-style:solid; border-collapse:collapse;}
+
+.tableRow1 {color:#083C76;}
+
+.tableRow2 {background-color:#BDD5EF; color:#083C76;}
+
+th {font-weight:bold; padding:4px; border:solid 1px #BDD5EF; border-bottom:1px;}
+
+td {padding:4px; border:solid 1px #BDD5EF;}
+
+.tdLabel {background-color:#BDD5EF; font-weight:bold; color:#FFFFFF;}
+
+td a {color:#083C76; text-decoration:underline;}
+
+td a:hover {color:#000000; text-decoration:none;}
+
+a.contentLink {color:#083C76; text-decoration:underline;}
+
+a.contentLink:hover {color:#000000; text-decoration:none;}
+
+.error {font-weight:bold; font-style:italic; font-size: 9px; color:#ffffff; background-color:#FF0000; padding:3px 0px;}
+
+.label {font-style:italic; font-weight:bold; color:#083C76;}
+
+a.itemLink {color:#083C76; text-decoration:underline;}
+
+a.itemLink:hover {color:#000000; text-decoration:none;}
