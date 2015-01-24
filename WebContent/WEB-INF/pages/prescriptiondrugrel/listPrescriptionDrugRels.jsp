@@ -102,7 +102,6 @@ $(document).ready(function(){
 function updateRelValues(oCheckBox){
 	var checkBocValue = oCheckBox.value;
 	if (oCheckBox.checked == true){
-		alert('add');
 		IdValuesArray.push(checkBocValue);
 	}else{
 		for(var i = IdValuesArray.length - 1; i >= 0; i--) {

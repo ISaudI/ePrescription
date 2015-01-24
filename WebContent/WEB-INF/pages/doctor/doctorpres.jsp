@@ -14,7 +14,6 @@ $(document).ready(function(){
 	 var drugPosition = 0;
 	  $("#getDetails").click(function(){
 		  var arogyaId = $("#patientau360Id").val();
-		  alert(arogyaId);
 	    $.get("./selectPatient.html?arogyaId="+arogyaId+"&",function(data,status){
 	      $("#patientDetailsDiv").html(data);
 	    });
