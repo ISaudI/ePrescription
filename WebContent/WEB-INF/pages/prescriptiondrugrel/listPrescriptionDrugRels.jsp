@@ -137,7 +137,7 @@
                             <input type="hidden" id="drugPresId" name="drugPresId"> 
                             <input type="hidden" id="upnNumber" name="upnNumber" value="${upnNumber}">
                             <input type="hidden" id="auid" name="auid" value="${auid}">  
-                            <input type="submit" id="idValues" class="btn btn-purple pull-right"  style=" margin-right:10px;margin-bottom:10px;" value="Deliver">				
+                            <input type="submit" id="idValues"  class="btn btn-purple pull-right"  style=" margin-right:10px;margin-bottom:10px;" value="Deliver">				
                         </form>
                     </c:if>                                             
                 </div>                              
@@ -147,5 +147,36 @@
     <nav class="navbar navbar-inverse navbar-fixed-bottom">     
     </nav> 
 </body>
+<script>
+var IdValuesArray = [];
+
+$("#idValues").hide();
+
+function updateRelValues(oCheckBox){
+    
+var checkBocValue = oCheckBox.value;
+
+if (oCheckBox.checked == true){
+	IdValuesArray.push(checkBocValue);
+}else{
+	for(var i = IdValuesArray.length - 1; i >= 0; i--) {
+	    if(IdValuesArray[i] == checkBocValue) {
+	    	IdValuesArray.splice(i, 1);
+	    }
+	}
+}
+if (IdValuesArray.length > 0){
+	$("#idValues").show();
+}else{
+	$("#idValues").hide();
+}
+$("#drugPresId").val(IdValuesArray);
+}
+
+
+
+
+
+</script>
 </html>
 

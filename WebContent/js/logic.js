@@ -6,7 +6,7 @@ $(document).ready(function(){
 	  $("#addDrug").click(function(){                   
             $("#totalNumber").val(drugPosition);
                 if(checkDrugDetaial() == false){
-                   
+                   return;
                 }
 		else{                      
                     var x = '<tr>'+
@@ -18,6 +18,7 @@ $(document).ready(function(){
                     $("#drugDivison_medicines_body").append(x)
                     drugPosition++;	  
                 }
+              //show the generate prescription   
 	  });
           $("#chemistGetPatientDetial").submit(function(){
 		return chemistPatientDetialentry();
@@ -51,20 +52,7 @@ $(document).ready(function(){
 	    });
         }
     }    
-    function updateRelValues(oCheckBox){
-         var IdValuesArray = [];
-	var checkBocValue = oCheckBox.value;
-	if (oCheckBox.checked == true){
-		IdValuesArray.push(checkBocValue);
-	}else{
-		for(var i = IdValuesArray.length - 1; i >= 0; i--) {
-		    if(IdValuesArray[i] == checkBocValue) {
-		    	IdValuesArray.splice(i, 1);
-		    }
-		}
-	}
-	$("#drugPresId").val(IdValuesArray);
-}
+   
     function checkDrugDetaial(){
        var flag = true;
        var drugList = $('#drugId').val();

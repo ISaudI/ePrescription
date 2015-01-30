@@ -1,3 +1,4 @@
+<%@page import="com.eprescription.aarogya.service.PrescriptionServiceImpl"%>
 <%@ page language="java" isELIgnored="false" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -87,10 +88,10 @@ $(document).ready(function() {
                                     <th><fmt:message key="prescription.prescriptionid.title"/></th>
                                     <th><fmt:message key="prescription.upn.title"/></th>
                                     <c:if test="${role != 'Patient' }">
-                                    <th><fmt:message key="prescription.patientid.title"/></th>
+                                    <th><fmt:message key="prescription.patientname.title"/></th>
                                     </c:if>
                                     <c:if test="${role != 'Doctor' }">
-                                    <th><fmt:message key="prescription.doctorid.title"/></th>
+                                    <th><fmt:message key="prescription.doctorname.title"/></th>
                                     </c:if>
                                     <th><fmt:message key="prescription.status.title"/></th>
                                 </tr>
@@ -113,12 +114,20 @@ $(document).ready(function() {
                                             </td>
                                             <c:if test="${role != 'Patient' }">
                                             <td>						
-                                                ${current.patientId}						
+                                                <!--  ${current.patientId}	-->
+                                                 <c:set var="patId" value="${current.patientId}"></c:set>
+                                                 <%  if (PrescriptionServiceImpl.patientDetailsMap != null){ %>
+                                                <%= PrescriptionServiceImpl.patientDetailsMap.get(pageContext.getAttribute("patId"))  %>	
+                                                <% } %>
                                             </td>
                                             </c:if>
                                             <c:if test="${role != 'Doctor' }">
                                             <td>					
-                                                ${current.doctorId}						
+                                               <!--  ${current.doctorId}	--> 	
+                                                <c:set var="docId" value="${current.doctorId}"></c:set>
+                                                 <%  if (PrescriptionServiceImpl.doctorDetailsMap != null){ %>
+                                                <%= PrescriptionServiceImpl.doctorDetailsMap.get(pageContext.getAttribute("docId"))  %>	
+                                                    <% } %>
                                             </td>
                                             </c:if>
                                             <td>						

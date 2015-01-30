@@ -1,6 +1,7 @@
 package com.eprescription.aarogya.service;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,10 +13,12 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.eprescription.aarogya.dao.DoctorDAO;
 import com.eprescription.aarogya.dao.PatientDAO;
 import com.eprescription.aarogya.dao.PrescriptionDrugDAO;
 import com.eprescription.aarogya.domain.Prescription;
 import com.eprescription.aarogya.domain.PrescriptionDrugRel;
+import com.eprescription.aarogya.web.model.PatientDocPresDrugRel;
 import com.eprescription.aarogya.web.model.PrescriptionDrugRelWebModel;
 
 @Scope("singleton")
@@ -31,7 +34,13 @@ private transient Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Resource(name = "patientDAO")
 	protected PatientDAO patientDAO;
+	
+	@Resource(name = "doctorDAO")
+	protected DoctorDAO doctorDAO;
 
+	public static Map<Integer, String> doctorDetailsMap;
+	
+	public static Map<Integer, String> patientDetailsMap;
 	
 	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public List<PrescriptionDrugRelWebModel> getDrugsInPrescription(String upnNumber) {
@@ -47,14 +56,27 @@ private transient Logger logger = LoggerFactory.getLogger(getClass());
 		List<PrescriptionDrugRel> prescriptiondrugrels = null;
 		List<PrescriptionDrugRel> queryResult;
 		queryResult = prescriptionDrugDAO.getPrescriptionDetailsByPatient(patientId);
+		doctorDetailsMap  = doctorDAO.getDoctorDetails();
 		prescriptiondrugrels = queryResult;
 		return prescriptiondrugrels;
 	}
+	
+	/*private PatientDocPresDrugRel copyPrescriptionDrugRelToPatientDocPresDrugRel(PrescriptionDrugRel drugRel){
+		PatientDocPresDrugRel docPresDrugRel = new PatientDocPresDrugRel();
+		docPresDrugRel.setPresDrugRelDosage(drugRel.getPresDrugRelDosage());
+		docPresDrugRel.setPresDrugRelDrugId(drugRel.getPresDrugRelDrugId());
+		docPresDrugRel.setPresDrugRelFrequency(drugRel.getPresDrugRelFrequency());
+		docPresDrugRel.setPresDrugRelId(drugRel.getPresDrugRelId());
+		docPresDrugRel.setPresDrugRelUpn(drugRel.getPresDrugRelUpn());
+		docPresDrugRel.setPresDrugRelStatus(drugRel.getPresDrugRelStatus());
+		return docPresDrugRel;
+	}*/
 
 	@Transactional(isolation = Isolation.DEFAULT, propagation = Propagation.REQUIRED)
 	public List<PrescriptionDrugRel> getDoctorPrescriptions(Integer doctorId) throws Exception {
 		List<PrescriptionDrugRel> prescriptiondrugrels = null;
 		List<PrescriptionDrugRel> queryResult = prescriptionDrugDAO.getPrescriptionDetailsByDoctor(doctorId);
+		patientDetailsMap = patientDAO.getPatientDetails();
 		System.out.println("The size of it is  "+queryResult.size());
 		prescriptiondrugrels = queryResult;
 		return prescriptiondrugrels;

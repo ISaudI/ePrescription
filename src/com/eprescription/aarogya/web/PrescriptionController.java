@@ -83,6 +83,7 @@ private static final String BIND_PATTERN_SUFFIX = "_datebindpattern";
 	@RequestMapping(value = "/indexPrescriptionByPatientId.html")
 	public ModelAndView listPrescriptionsByPatientId(@RequestParam("patientId") Integer patientId) throws java.lang.Exception {
 		List<PrescriptionDrugRel> prescriptions = prescriptionService.getPatientPrescriptions(patientId);
+		System.out.println(prescriptions.get(0));
 		logger.info("Exiting from the service method listPrescriptionDrugRels()");
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("prescriptions", prescriptions);

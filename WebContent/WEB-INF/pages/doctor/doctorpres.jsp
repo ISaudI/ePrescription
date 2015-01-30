@@ -16,7 +16,12 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="<c:url value='/resources/js/bootstrap.js'/>"></script>
 <script src="<c:url value='/resources/js/logic.js'/>"></script>
+<script type="text/javascript">
 
+
+
+
+</script>
 
 <title>Doctor Page</title>
 </head>
