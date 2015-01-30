@@ -1,5 +1,9 @@
 package com.eprescription.aarogya.dao;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,5 +42,20 @@ public class PatientDAOImpl implements PatientDAO {
 		Patient patient = (Patient) query.uniqueResult();
 		logger.info("Exitting from findPatientDetailsByAurogyaId()");
 		return patient;
+	}
+
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<Integer, String> getPatientDetails() {
+		Map<Integer, String> patientMap = new HashMap<Integer, String>();
+		String hql = "from Patient";
+		Session session = hibernate4AnnotatedSessionFactory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		List<Patient> patientList = query.list();
+		for (Patient patient : patientList){
+			patientMap.put(patient.getPatientId(), patient.getPatientName());
+		}
+		return patientMap;
 	} 
 }

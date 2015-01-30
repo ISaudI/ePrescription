@@ -2,6 +2,7 @@ package com.eprescription.aarogya.dao;
 
 
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.springframework.dao.DataAccessException;
@@ -78,4 +79,6 @@ public interface DoctorDAO  {
 	 * @return
 	 */
 	public List<Drug> getMedicineList();
+	
+	public Map<Integer, String> getDoctorDetails();
 }

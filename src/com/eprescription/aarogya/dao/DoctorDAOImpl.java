@@ -2,8 +2,10 @@ package com.eprescription.aarogya.dao;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import org.hibernate.Query;
@@ -132,5 +134,19 @@ public class DoctorDAOImpl implements DoctorDAO {
 		logger.info("Exiting into getMedicineList()");
 		return result;
 	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public Map<Integer, String> getDoctorDetails() {
+		Map<Integer, String> doctorMap = new HashMap<Integer, String>();
+		String hql = "from Doctor";
+		Session session = hibernate4AnnotatedSessionFactory.getCurrentSession();
+		Query query = session.createQuery(hql);
+		List<Doctor> doctorList = query.list();
+		for (Doctor doctor : doctorList){
+			doctorMap.put(doctor.getDoctorId(), doctor.getDoctorName());
+		}
+		return doctorMap;
+	} 
 
 }
