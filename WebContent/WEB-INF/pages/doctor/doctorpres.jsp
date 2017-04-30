@@ -26,6 +26,10 @@
 <title>Doctor Page</title>
 </head>
 <body>
+<c:if test="${loggedIn == 'failure' }">
+  <c:redirect url="/error.jsp"></c:redirect>
+</c:if>
+
 <fmt:setBundle basename="resources.eprescription-resources"/>
 <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container-fluid">

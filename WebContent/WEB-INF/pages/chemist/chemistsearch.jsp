@@ -15,6 +15,9 @@
 <script src="<c:url value='/resources/js/bootstrap.js'/>"></script>
 <script src="<c:url value='/resources/js/logic.js'/>"></script>
 </head>
+<c:if test="${loggedIn == 'failure' }">
+  <c:redirect url="/error.jsp"></c:redirect>
+</c:if>
 <body style="background-color: #E3F5ED">
 <fmt:setBundle basename="resources.eprescription-resources"/>
 <nav class="navbar navbar-inverse navbar-fixed-top">

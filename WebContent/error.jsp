@@ -5,6 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Error Page</title>
+<link   rel="stylesheet" type="text/css" href ="./css/bootstrap.min.css">
+<link rel="stylesheet" type="css" href="/css/style.css">
+<link  rel="stylesheet" type="text/css" href ="./css/style.css">
+<link  rel="stylesheet" type="text/css" href ="./css/home.css">
+<style type="text/css">
+   <%@ include file="css/bootstrap.min.css"%>
+</style>
 </head>
 <body>
 Something went wrong .. Please contact the Administrator.

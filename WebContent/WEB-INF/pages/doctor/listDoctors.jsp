@@ -7,6 +7,9 @@
 <title>List Doctors</title>
 </head>
 <body>
+<c:if test="${loggedIn == 'failure' }">
+  <c:redirect url="/error.jsp"></c:redirect>
+</c:if>
 <fmt:setBundle basename="resources.eprescription-resources"/>
 
 	<p>

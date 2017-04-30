@@ -6,6 +6,7 @@ import java.util.Enumeration;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.execution.databinding.CustomCalendarEditor;
 import org.execution.databinding.EnhancedBooleanEditor;
@@ -65,6 +66,10 @@ public class LoginController {
 
 	@RequestMapping(value = "/Login.html")
 	public ModelAndView newLogin(HttpServletRequest request) throws java.lang.Exception {
+		
+		/*HttpSession session  = request.getSession();
+		session.setAttribute("loggedIn", "failure");
+		//session.invalidate();*/
 		Login login = null;
 		login = new Login();
 		ModelAndView mav = new ModelAndView();
@@ -76,6 +81,8 @@ public class LoginController {
 	@RequestMapping(value = "/verifyLogin.html")
 	public String verifyLogin(@ModelAttribute("login") Login login, HttpServletRequest request, Model model ) throws java.lang.Exception {
 		logger.info("Entering into Login for "+login.getAu360Id());
+		HttpSession session  = request.getSession();
+		session.setAttribute("loggedIn", "success");
 		if ("doctor".equalsIgnoreCase(login.getRole())){
 			Doctor doctor  = doctorDAO.findDoctorByLoginCredentils(login.getAu360Id(), login.getPassword());
 			if ( doctor != null){
